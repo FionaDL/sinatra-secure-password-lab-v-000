@@ -42,7 +42,8 @@ class ApplicationController < Sinatra::Base
       redirect to '/failure'
     else
       @user = User.find(username: params[:username], password: params[:password])
-      binding.pry
+      session[:user_id] = @user.id
+      redirect to '/account'
     end
   end
 
