@@ -38,7 +38,6 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/login" do
-    binding.pry
     if params[:username] != "" || params[:password] != ""
       @user = User.find(username: params[:username], password: params[:password])
       session[:user_id] = @user.id
